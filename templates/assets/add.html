@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Add Asset</h3>
+<form method="post">
+  <div class="mb-3">
+    <label>Type</label>
+    <select name="asset_type" class="form-control">
+      <option value="realestate">Real Estate</option>
+      <option value="gold">Gold</option>
+      <option value="stocks">Stocks</option>
+      <option value="cash">Cash</option>
+    </select>
+  </div>
+  <div class="mb-3"><label>Name</label><input class="form-control" name="name" required></div>
+  <div class="mb-3"><label>Quantity</label><input class="form-control" name="quantity" type="number" step="any"></div>
+  <div class="mb-3"><label>Current Value (asset currency)</label><input class="form-control" name="current_value" type="number" step="any"></div>
+  <div class="mb-3"><label>Purchase Date</label><input class="form-control" name="purchase_date" type="date"></div>
+  <div class="mb-3"><label>Currency</label><input class="form-control" name="currency" value="USD"></div>
+  <div class="mb-3"><label>Chart color (hex)</label><input class="form-control" name="color" value="#4e73df" type="color"></div>
+  <button class="btn btn-primary">Add</button>
+</form>
+{% endblock %}

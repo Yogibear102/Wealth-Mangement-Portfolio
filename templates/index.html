@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% block title %}Personal Wealth Management{% endblock %}
+{% block content %}
+<style>
+  /* Full-page hero section */
+  .hero-section {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0d6efd, #1e90ff, #0dcaf0);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+    color: #fff;
+    border-radius: 20px;
+    margin-top: 50px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+  }
+
+  /* Animated gradient movement */
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Title Animation */
+  .hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    animation: fadeInDown 1.2s ease-out;
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 15px;
+    margin-bottom: 30px;
+    animation: fadeInUp 1.5s ease-out;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Button container */
+  .hero-buttons a {
+    margin: 0 10px;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .btn-login {
+    background-color: white;
+    color: #0d6efd;
+    border: 2px solid transparent;
+  }
+
+  .btn-login:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-3px);
+  }
+
+  .btn-register {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+  }
+
+  .btn-register:hover {
+    background-color: white;
+    color: #0d6efd;
+    transform: translateY(-3px);
+  }
+
+  /* Animated tagline logo (PWM text pulse) */
+  .brand-pulse {
+    font-weight: 800;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, #fff, #cce5ff, #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: pulse 3s infinite;
+  }
+
+  @keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.9; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title { font-size: 2.2rem; }
+    .hero-subtitle { font-size: 1rem; }
+  }
+</style>
+
+<div class="hero-section">
+  <h1 class="hero-title"><span class="brand-pulse">Personal Wealth Management</span></h1>
+  <p class="hero-subtitle">Manage assets, transactions, and view your net worth at a glance.</p>
+
+  <div class="hero-buttons">
+    <a href="{{ url_for('login') }}" class="btn btn-login">Login</a>
+    <a href="{{ url_for('register') }}" class="btn btn-register">Register</a>
+  </div>
+</div>
+{% endblock %}

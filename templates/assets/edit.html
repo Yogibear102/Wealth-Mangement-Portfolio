@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Edit Asset</h3>
+<form method="post">
+  <div class="mb-3"><label>Name</label><input class="form-control" name="name" value="{{ asset.name }}" required></div>
+  <div class="mb-3"><label>Quantity</label><input class="form-control" name="quantity" type="number" step="any" value="{{ asset.quantity }}"></div>
+  <div class="mb-3"><label>Current Value</label><input class="form-control" name="current_value" type="number" step="any" value="{{ asset.current_value }}"></div>
+  <div class="mb-3"><label>Purchase Date</label><input class="form-control" name="purchase_date" type="date" value="{{ asset.purchase_date }}"></div>
+  <div class="mb-3"><label>Currency</label><input class="form-control" name="currency" value="{{ asset.currency }}"></div>
+  <div class="mb-3"><label>Chart color (hex)</label><input class="form-control" name="color" value="{{ asset.color }}" type="color"></div>
+  <button class="btn btn-primary">Save</button>
+</form>
+{% endblock %}

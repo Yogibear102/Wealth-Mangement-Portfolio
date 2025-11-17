@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Settings</h3>
+<form method="post">
+  <div class="mb-3">
+    <label>Base reporting currency</label>
+    <select name="base_currency" class="form-select">
+      {% for c in rates %}
+      <option value="{{ c }}" {% if user.base_currency==c %}selected{% endif %}>{{ c }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button class="btn btn-primary">Save</button>
+</form>
+{% endblock %}

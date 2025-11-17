@@ -1,0 +1,37 @@
+<h1>Your Assets</h1>
+
+{% if not assets %}
+  <p>No assets yet. <a href="{{ url_for('assets_add') }}">Add one</a>.</p>
+{% else %}
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Quantity</th>
+        <th>Current Value</th>
+        <th>Currency</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for asset in assets %}
+      <tr>
+        <td>{{ asset.name }}</td>
+        <td>{{ asset.asset_type }}</td>
+        <td>{{ asset.quantity }}</td>
+        <td>{{ asset.current_value }}</td>
+        <td>{{ asset.currency }}</td>
+        <td>
+          <a href="{{ url_for('assets_edit', asset_id=asset.id) }}">Edit</a>
+
+          <!-- Delete: POST form to avoid accidental GET deletes; JS confirm for safety -->
+          <form action="{{ url_for('assets_delete', asset_id=asset.id) }}" method="post" style="display:inline" onsubmit="return confirm('Delete this asset and all related transactions?');">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endif %}
